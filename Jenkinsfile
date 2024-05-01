@@ -32,7 +32,7 @@ pipeline {
         stage('Push image to Hub'){
             steps{
                 script{
-                    docker.image("furkangk:${env.BUILD_NUMBER}").run("-d -p 4444:4444 --name demo-container")
+                    docker.image("furkangk:${env.BUILD_NUMBER}").run("-d -p 4444:4444 --name furkangk")
                 }
             }
         }
