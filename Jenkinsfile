@@ -17,8 +17,8 @@ pipeline {
                              steps {
                                  script {
                                    // Varolan container'ı durdur ve sil
-                                            bat 'docker stop demo-container '
-                                            bat 'docker rm demo-container'
+                                            bat 'docker stop furkangk '
+                                            bat 'docker rm furkangk'
                                         }
                                    }
                         }
