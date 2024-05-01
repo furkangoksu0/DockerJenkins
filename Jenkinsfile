@@ -17,22 +17,22 @@ pipeline {
                              steps {
                                  script {
                                    // Varolan container'ı durdur ve sil
-                                            bat 'docker stop furkangk '
-                                            bat 'docker rm furkangk'
+                                            bat 'docker stop demo-container '
+                                            bat 'docker rm demo-container'
                                         }
                                    }
                         }
         stage('Build docker image'){
             steps{
                 script{
-                    docker.build("furkangk:${env.BUILD_NUMBER}")
+                    docker.build("furkangoksu0/app:${env.BUILD_NUMBER}")
                 }
             }
         }
         stage('Push image to Hub'){
             steps{
                 script{
-                    docker.image("furkangk:${env.BUILD_NUMBER}").run("-d -p 4444:4444 --name furkangk")
+                    docker.image("furkangoksu0/app:${env.BUILD_NUMBER}").run("-d -p 4444:4444 --name demo-container")
                 }
             }
         }
